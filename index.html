@@ -1,0 +1,392 @@
+<!doctype html>
+<html>
+<head>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0;'>
+    <meta charset="UTF-8">
+    <title>Frontend Crash Course</title>
+
+    <link href='styles/libs/fonts.css' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' href='styles/semantic.min.css'>
+    <link rel="stylesheet" href="styles/libs/monokai.min.css">
+    <link rel='stylesheet' href='styles/main.css'>
+</head>
+<body id="book">
+    <div class="book-wrap">
+        <div class="book-wrap__inner">
+
+            <div class="book__col">
+                <div class="book__colwrap ui menu inverted vertical">
+                    <div class="item colheader colitem">
+                        <h1 class="title colheader__title">Frontend Crash Course</h1>
+                        <br>
+                        <div class="description">An introduction to HTML, CSS, and deployment.</div>
+                        <br>
+                    </div>
+                    <div class="item item__active">
+                        <b class="header"><a href="#topic-breakdown">Topic Breakdown</a></b>
+                    </div>
+                    <div class="item item__active">
+                        <b class="header"><a href="#setting-up-your-environment">Setting up your environment</a></b>
+                    </div>
+                    <div class="item item__active">
+                        <b class="header"><a href="#guts-of-an-html-request">Guts of an HTML request</a></b>
+                    </div>
+                    <div class="item item__active">
+                        <b class="header"><a href="#all-about-html">All about HTML</a></b>
+                    </div>
+                    <div class="item item__active">
+                        <b class="header"><a href="#styling-with-css">Styling with CSS</a></b>
+                    </div>
+                    <div class="item item__active">
+                        <b class="header"><a href="#frontend-frameworks">Frontend frameworks</a></b>
+                    </div>
+
+                </div>
+            </div><!-- book__col -->
+
+            <div class="book__content">
+                <div class="main-content js-content" style="padding-bottom: 100px;">
+<h1 id="frontend-crash-course">Frontend Crash Course</h1>
+<hr>
+<p>Hello, <a href="https://medium.com/@the_taqquikarim/console-log-hello-wrold-3e3abeb44396">Wrold</a>! Welcome!</p>
+<p>In this class, we will cover some of the basics of web development. This will include discussion on stuff like HTML, CSS and deployment to the web.</p>
+<h3 id="objectives">Objectives</h3>
+<ul>
+<li>write HTML from scratch</li>
+<li>use CSS to style our HTML</li>
+<li>deploy our page to the internet</li>
+<li>understand bootstrap + other frontend frameworks</li>
+</ul>
+<h3 id="topic-breakdown">Topic Breakdown</h3>
+<h4 id="setting-up-your-environment_">Setting up your environment</h4>
+<ol>
+<li>Getting Started: set up your dev environment.</li>
+<li>Good to Knows: Sublime tricks + Newsletters.</li>
+</ol>
+<h4 id="guts-of-an-html-request_">Guts of an HTML Request</h4>
+<ol>
+<li>Internets, how does it work?!</li>
+<li>File structure, traversals, and you</li>
+<li>Let's create our first website (folder)</li>
+</ol>
+<h4 id="all-about-html_">All about HTML</h4>
+<ol>
+<li>Basic HTML Structure</li>
+<li>Common HTML Tags</li>
+<li>How to Validate HTML</li>
+</ol>
+<p>BRB...</p>
+<hr>
+<h4 id="deploy-to-the-internets-">DEPLOY TO THE INTERNETS!!!</h4>
+<hr>
+<p>K, we're back.</p>
+<h4 id="styling-with-css_">Styling with CSS</h4>
+<ol>
+<li>Bro, do you even CSS?</li>
+<li>Putting your money where your .mouth is</li>
+</ol>
+<h4 id="frontend-frameworks_">Frontend frameworks</h4>
+<ol>
+<li>Building Websites Quickly with Bootstrap</li>
+<li>Bootstrap on steriods: bootstrapCDN, bootswatch, and fewd.us/zip</li>
+</ol>
+<p>Here's a panda sliding on things:</p>
+<p><img src="https://media.giphy.com/media/AqZjlaUAjMRB6/giphy.gif" alt="Pandas slide on things"></p>
+<h2 id="setting-up-your-environment">Setting up your environment</h2>
+<p>For all of our lectures, we’re going to be making use of a few programs that are going to help us write code, transfer code to servers, and view the results of our code in the browser. </p>
+<p>Please download and install the following programs if you haven't done so already:</p>
+<ol>
+<li><p><a href="http://www.sublimetext.com/3">Sublime Text</a> – code editor – you’ll be writing code here. This is a free tool, but they will ask you to donate every few saves. However, you can use the program for free as long as you'd like.</p>
+</li>
+<li><p><a href="http://www.google.com/chrome/?">Chrome</a> – web browser – you’ll use this to view your code assignments. So free it hurts.</p>
+</li>
+</ol>
+<h2 id="guts-of-an-html-request">Guts of an HTML Request</h2>
+<h4 id="what-happens-when-you-type-in-_-span-style-text-decoration-underline-http-www-google-com-span-_-into-the-omnibar-">WHAT HAPPENS WHEN YOU TYPE IN, <em>“<span style="text-decoration: underline;">HTTP://WWW.GOOGLE.COM</span>“</em> INTO THE OMNIBAR?</h4>
+<ol>
+<li>browser has no idea what “<a href="http://www.google.com”">http://www.google.com”</a> means, so it looks up IP address for google</li>
+<li>DNS stands for <em>Domain Name System</em>, it is essentially a phone book</li>
+<li>browser sends HTTP request — basically asks google.com for HTML — to that IP address (we’ll talk more about that in the next section, stay tuned!).</li>
+<li>once response is received by browser, figures out what to do (display it? download it? etc)</li>
+<li>???</li>
+<li>profit</li>
+</ol>
+<h4 id="but-why-is-this-important-">BUT WHY IS THIS IMPORTANT?</h4>
+<ol>
+<li>the transfer mechanism for the internet — that thing that rules our lives — is <span style="text-decoration: underline;"><em>text</em></span></li>
+<li>Yes, <span style="text-decoration: underline;"><em>text</em></span>. Literally just letters and words and numbers and characters.</li>
+<li>However, this text is written in a certain way (with rules and such) — with a certain grammar if you will.</li>
+<li>The rules for this grammar is essentially what determines a <span style="text-decoration: underline;"><em>language</em></span>. (Not necessarily programming language, HTML is a <em>markup</em> language, as is CSS — but same basic idea).</li>
+</ol>
+<h3 id="file-structure-traversals-and-you">File Structure, Traversals, and You</h3>
+<h4 id="a-website-is-just-a-folder-structure-that-contains-a-very-specific-set-of-files-">A WEBSITE IS JUST A FOLDER STRUCTURE THAT CONTAINS A VERY SPECIFIC SET OF FILES.</h4>
+<p>In general, the entirety of your website should live in a folder. Inside that folder, you should have the following structure:</p>
+<pre><code class="lang-html hljs xml">myAwesomeFirstSite (folder)
+    assets (folder)
+        backgroundImage.jpg
+         ...
+         myDashingMug.png
+     styles (folder)
+         reset.css
+         ...
+         main.css
+     javsacript (folder)
+         main.js
+     index.html
+     about.html
+     contact.html
+</code></pre>
+<h4 id="a-few-important-notes-here">A FEW IMPORTANT NOTES HERE</h4>
+<ol>
+<li>myAwesomeFirstSite is the folder that will contain all the other folders that you need for your site to work</li>
+<li>note that our filenames and folder names <span style="text-decoration: underline;"><em>have NO spaces</em></span> or any other funky business. This is important! Just letters and numbers and underscores allowed! (Dashes are ok too but I recommend staying away from them).</li>
+<li>Inside our myAwesomeFirstSite folder, we have three other folders:<ol>
+<li>assets: all website images should go here</li>
+<li>styles: all your CSS files should go here</li>
+<li>javascript: all your js files should go here</li>
+</ol>
+</li>
+<li>We also have a few files that end in .html — these are our HTML files (obvs). Typically, you are free to have as many .html files as you’d like — but you need to have at LEAST one file called index.html if you want your site to show up in the browser.</li>
+</ol>
+<h4 id="-u-lets-create-our-first-website-folder-u-"><u>LETS CREATE OUR FIRST WEBSITE FOLDER</u></h4>
+<h2 id="all-about-html">All about HTML</h2>
+<p>All HTML pages must have the following general structure:</p>
+<pre><code class="lang-html hljs xml"><span class="hljs-meta">&lt;!doctype html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+ <span class="hljs-comment">&lt;!--
+ the HEAD section of html does not have any content
+ that the user can see
+
+ instead, we place things like:
+ page title
+ external css links
+ SEO keywords
+ here
+ --&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>My First Awesome Site<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+ <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+ <span class="hljs-comment">&lt;!--
+
+ the BODY section will contain all the tags
+ that the user can _SEE_ and _INTERACT_ with
+ --&gt;</span>
+ <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<h4 id="-doctype-html-"><code>&lt;!doctype html&gt;</code></h4>
+<p>This tag tells the browser to read our HTML content as HTML5, the latest and greatest revision of the HTML spec. We MUST include it as the first thing on our .html files. I usually type it as all lower case, but it's common practice to also type as: &lt;!DOCTYPE html&gt;</p>
+<h4 id="-html-"><code>&lt;html&gt;</code></h4>
+<p>This is the <em>root</em> tag. Basically, all other tags in your html file must live inside this tag. Note how on the bottom of the code snippet, we have a "". This is called <em><span style="text-decoration: underline;">closing</span></em> a tag and we must close all tags that we open (with the exception of a few). If we do not do this, our HTML markup becomes invalid.</p>
+<h4 id="-head-"><code>&lt;head&gt;</code></h4>
+<p>This section contains content that does <em>not</em> show the user things. Typically, we would expect to see things such as the page title, external links, and SEO tags here.</p>
+<h4 id="-body-"><code>&lt;body&gt;</code></h4>
+<p>All the magic happens here. All the tags the user interacts with should live in this tag.</p>
+<h4 id="a-note-about-span-style-text-decoration-underline-self-closing-span-tags">A note about <span style="text-decoration: underline;">self closing</span> tags</h4>
+<p>As noted earlier, not all tags have the ability to close themselves. Some tags do not <span style="text-decoration: underline;"><em>need</em></span> to be closed. Some examples of these types of tags are:</p>
+<ol>
+<li><code>&lt;input&gt;</code> - this is used to get content from the user. Textboxes and password fields are manifestations of this tag. You do not need an  here</li>
+<li><code>&lt;img&gt;</code> - this is used to display images.</li>
+<li><code>&lt;link&gt;</code> - this tag is used to pull in external links such as CSS files from your styles/ directory into your html page</li>
+</ol>
+<h4 id="here-s-a-list-of-some-commonly-used-html-tags">Here's a list of some commonly used html tags</h4>
+<pre><code class="lang-html hljs xml"><span class="hljs-comment">&lt;!--
+ the h1 - or heading one - will have the most important text on page 
+ by the old guard, we should really only have one h1 per page
+ --&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hello, Wrold<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+
+ <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>This is a h2<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+
+ <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>This is an h3<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+ <span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>This is an h4<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+
+ <span class="hljs-tag">&lt;<span class="hljs-name">h5</span>&gt;</span>This is an h5<span class="hljs-tag">&lt;/<span class="hljs-name">h5</span>&gt;</span>
+
+ <span class="hljs-tag">&lt;<span class="hljs-name">h6</span>&gt;</span>This is an h6<span class="hljs-tag">&lt;/<span class="hljs-name">h6</span>&gt;</span> 
+
+ <span class="hljs-comment">&lt;!--
+ this is an inline element
+ unline the block element, which is meant to provide structure
+ the inline element is interpreted as content
+ this means that will appear next to one another
+ --&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>This is an inline element<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>This is another inline element<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>
+
+ <span class="hljs-comment">&lt;!-- this is a block element so it will NOT be on the same line --&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Will this be on the same line?<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+
+ <span class="hljs-comment">&lt;!-- 
+
+ differences between block elements and inline elements
+ block: takes up entire width of page unless otherwise told 
+ (we don't know how yet)
+ we can impose dimensions on block elements
+ inline: meant to be content or text
+ we cannot impose dimensions on inline elements 
+
+ --&gt;</span>
+
+ <span class="hljs-comment">&lt;!-- how to add more spaces or line breaks?? --&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>THIS will have many &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; spaces<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+
+ <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>This is <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span> Sparta<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+
+ <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://www.google.com"</span>&gt;</span>Hello, Wrold I'm a link, yo<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+ <span class="hljs-comment">&lt;!--
+ this is one mode
+ &lt;tagName attribute1="someValue" attribute2="someOtherValue"&gt;&lt;/tagName&gt;
+
+ this is a self closing tag
+ &lt;tagName attribute1="someValue" attribute2="someOtherValue"&gt;
+ --&gt;</span> 
+
+ <span class="hljs-comment">&lt;!--
+ convention: 
+ external links open up in new tab
+ absolute URLs
+
+ internal links open up in same tab
+ relative URLs
+ --&gt;</span>
+
+ <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://www.google.com"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span>&gt;</span>Hello, Wrold I'm ALSO a link, yo<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+ <span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>This is an em<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span>
+
+ <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>This is a paragraph.This is a paragraph.This is a paragraph.This is a paragraph.This is a paragraph.This is a paragraph.This is a paragraph.This is a paragraph.This is a paragraph.This is a paragraph.This is a paragraph.This is a paragraph.This is a paragraph.This is a paragraph.This is a paragraph.This is a paragraph.This is a paragraph.This is a paragraph.This is a paragraph.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+ <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placekitten.com/g/200/300"</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>This is a kitten. S/he is cute.<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+ <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>This is a list item <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>This is another list item<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>This is a third list item<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+ <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+
+ <span class="hljs-tag">&lt;<span class="hljs-name">ol</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>This is an ordered list item<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>This is another ordered list item<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>This is a third ordered list item<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+ <span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span>
+
+ <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+ <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+</code></pre>
+<h4 id="html-can-break-easily-">Html can break. easily.</h4>
+<p>Typically, small mistakes such as not closing a tag properly, not adding the , or forgetting quotations will break your html. Modern browsers can guard against this by trying to guess what it is you are trying to do. Non modern browsers however, do not do this.</p>
+<h4 id="what-happens-if-i-run-broken-html-">What happens if i run broken html?</h4>
+<p>Browser will <em>NOT</em> explode. Not even IE8. But! The whole idea of HTML is to build stuff with one standard (HTML code) and know that it will render uniformly cross-platform. If your HTML is broken, then we lose this advantage.</p>
+<h4 id="broken-html-is-called-_invalid_-html-">Broken html is called <em>invalid</em> HTML.</h4>
+<p>There are tools that can validate our code. This one is by far my favorite: <a href="http://validator.w3.org/">http://validator.w3.org/</a></p>
+<h2 id="styling-with-css">Styling with CSS</h2>
+<h4 id="what-is-css-how-does-it-work-">What is CSS? How does it work?</h4>
+<ol>
+<li>Method for searching your HTML tags efficiently and styling the results it finds</li>
+</ol>
+<h4 id="define-selectors-rules">Define: Selectors, rules</h4>
+<ol>
+<li>Selector: a keyword used to query your HTML<ol>
+<li>tags, classes, ids -- (the last two are html attributes)</li>
+</ol>
+</li>
+<li>Rules: the style attributes you are going to set</li>
+</ol>
+<h4 id="basic-selectors">Basic Selectors</h4>
+<ul>
+<li>tags (<em>practice:</em> <a href="http://fewd.us/jargon/#/problem/4678">tag selectors</a>)</li>
+<li>classes (<em>practice:</em> <a href="http://fewd.us/jargon/#/problem/4680">class selectors</a>)</li>
+<li>ids (<em>practice:</em> <a href="http://fewd.us/jargon/#/problem/4685">id selectors</a>)</li>
+</ul>
+<h4 id="complex-selectors-are">Complex Selectors are</h4>
+<ul>
+<li>any combination of the above three basic selectors</li>
+<li><a href="http://fewd.us/jargon/#/problem/4679">multiple class selectors</a></li>
+<li><a href="http://fewd.us/jargon/#/problem/4688">complex css selectors</a></li>
+<li><a href="http://fewd.us/jargon/#/problem/4934">css class selectors</a></li>
+</ul>
+<h4 id="specificity">Specificity</h4>
+<ol>
+<li>not all selectors are created equal<ol>
+<li>tags -&gt; 1</li>
+<li>classes -&gt; 10</li>
+<li>ids -&gt; 100</li>
+</ol>
+</li>
+<li>you can calculate the specificity of a selector by adding up all the values</li>
+<li>ie: body.my-class#my-id has a specificity of: 111<ol>
+<li>body -&gt; 1</li>
+<li>.my-class -&gt; 10</li>
+<li><a href="/home/#search/#my-id">#my-id</a> -&gt; 100</li>
+<li>so 1 + 10 + 100 = 111</li>
+</ol>
+</li>
+</ol>
+<h2 id="practice">Practice</h2>
+<ol>
+<li><a href="http://fewd.us/jargon/#/problem/4936">this</a></li>
+<li><a href="http://fewd.us/jargon/#/problem/4935">this</a></li>
+<li><a href="http://fewd.us/jargon/#/problem/4932">this</a>..?</li>
+</ol>
+<h2 id="frontend-frameworks">Frontend frameworks</h2>
+<h4 id="bootstrap-what-is-it-">Bootstrap: what is it?</h4>
+<ol>
+<li>Built by your boys over @twitter, it is a framework for quickly building out complex webpages</li>
+<li>They write the CSS and HTML blocks for you, all you do is copy and paste</li>
+<li>With a basic understanding of HTML/CSS, you can easily start building professional looking websites</li>
+</ol>
+<h4 id="how-does-one-bootstrap-">How does one bootstrap?</h4>
+<ol>
+<li>Go to their site: <span style="text-decoration: underline;"><a href="http://getbootstrap.com/">http://getbootstrap.com/</a></span></li>
+<li>Read their <a href="http://getbootstrap.com/getting-started/"><span style="text-decoration: underline;">documentation</span></a>.</li>
+<li>???</li>
+<li>profit</li>
+</ol>
+<h3>
+    <a href="#topic-breakdown">Back to top</a>
+</h3>
+
+<div class="ui container stackable grid main-content" style="margin-top:50px;" id="footer">
+    <div class="one column row">
+        <div class="column" style="font-size:16px;text-align: center;">
+            <div class="description">
+                <span>Built by your boy</span>
+                <strong>
+                    <a href="https://twitter.com/the_taqquikarim" target="_blank">Taq Karim</a>
+                </strong>
+                <span>with</span>
+                <strong>
+                    <a href="https://highlightjs.org/" target="_blank">highlight.js</a>,
+                </strong>
+                <strong>pushups</strong>,
+                <strong>
+                    <a href="https://mottaquikarim.github.io/eggers" target="_blank">Eggers</a>,
+                </strong>
+                <strong>
+                    <a href="https://open.spotify.com/track/4h95OrjKWYzVIai1EkvZbt" target="_blank">Stromae</a>,
+                </strong>
+                <span>and a</span>
+                <strong>can of redbull</strong>.
+            </div>
+        </div>
+    </div>
+</div>
+                </div>
+            </div><!-- book__content -->
+        </div>
+    </div>
+
+    <script src='/javascript/libs/jquery.min.js'></script>
+    <script src="javascript/libs/highlight.min.js"></script>
+    <script src="/javascript/libs/marked.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+</body>
+</html>
